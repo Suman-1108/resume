@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siva's Resume</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #1f1c2c, #928DAB, #1f1c2c);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 10s infinite ease-in-out;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header {
+            font-size: 32px;
+            font-weight: bold;
+            animation: slideIn 1.5s ease-in-out;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        section {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        section:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .extra-skills h2 {
+            color: #FFD700;
+        }
+
+        .chart-container {
+            width: 80%;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Siva</h1>
+            <p>Web Developer | SQL Expert | Commerce Enthusiast</p>
+        </header>
+        
+        <section class="about">
+            <h2>About Me</h2>
+            <p>As a skilled fresher, I bring expertise in web design, SQL, and database management, along with a strong foundation in commerce, including accounting and financial analysis. This unique combination enables me to bridge technology and business, driving data-driven decision-making. With a problem-solving mindset, I am eager to contribute to innovation and efficiency in a dynamic work environment.</p>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <div class="chart-container">
+                <canvas id="marksChart"></canvas>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li><strong>Programming Languages:</strong> C, SQL</li>
+                <li><strong>Web Technologies:</strong> HTML, CSS, JavaScript</li>
+            </ul>
+        </section>
+
+        <section class="interest">
+            <h2>Areas of Interest</h2>
+            <ul>
+                <li>Management</li>
+                <li>Web Development</li>
+            </ul>
+        </section>
+
+        <section class="org-skills">
+            <h2>Organizational Skills</h2>
+            <ul>
+                <li>Collaboration</li>
+                <li>Positivity</li>
+                <li>Negotiation</li>
+                <li>Leadership</li>
+                <li>Decision Making</li>
+            </ul>
+        </section>
+
+        <section class="achievements">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Best Manager</li>
+                <li>Legacy 23 Winner</li>
+                <li>Legacy 24 Finalist</li>
+                <li>JAYCEE 24 Runner</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('marksChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['College CGPA', 'School SSLC'],
+                datasets: [{
+                    label: 'Percentage',
+                    data: [70, 72],
+                    backgroundColor: ['#FFD700', '#00BFFF'],
+                    borderColor: ['#FFA500', '#1E90FF'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
